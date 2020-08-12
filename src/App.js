@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import Button from "@material-ui/core/Button";
 import { FormControl, InputLabel, Input } from "@material-ui/core";
+import Message from "./Message";
 
 function App() {
   const [input, setInput] = useState("");
@@ -19,7 +20,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hello Clever Programmers :🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 </h1>
+      <h1>VinChat:🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 </h1>
       <form>
         {/* Input Field */}
 
@@ -44,7 +45,7 @@ function App() {
       {/* Messages */}
 
       {messages.map((message) => (
-        <p>{message}</p>
+        <Message text={message} />
       ))}
     </div>
   );
