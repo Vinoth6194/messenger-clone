@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Button from "@material-ui/core/Button";
+import { FormControl, InputLabel, Input } from "@material-ui/core";
 
 function App() {
   const [input, setInput] = useState("");
@@ -22,20 +23,22 @@ function App() {
       <form>
         {/* Input Field */}
 
-        <input
-          value={input}
-          onChange={(event) => setInput(event.target.value)}
-        ></input>
-
-        <Button
-          type="submit"
-          onClick={sendMessage}
-          variant="contained"
-          color="primary"
-          disabled={!input}
-        >
-          Send Message
-        </Button>
+        <FormControl>
+          <InputLabel>Your reply goes here...</InputLabel>
+          <Input
+            value={input}
+            onChange={(event) => setInput(event.target.value)}
+          ></Input>
+          <Button
+            type="submit"
+            onClick={sendMessage}
+            variant="contained"
+            color="primary"
+            disabled={!input}
+          >
+            Send Message
+          </Button>
+        </FormControl>
       </form>
 
       {/* Messages */}
