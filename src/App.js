@@ -6,14 +6,14 @@ import Message from "./Message";
 
 function App() {
   const [input, setInput] = useState("");
-  const [messages, setMessages] = useState(["Hi Bro", "Vanakam", "Mahalo"]);
+  const [messages, setMessages] = useState([{username:'Vinoth', text:'Hi bro'},{username:"Kiruthika",text:"Hi da"}]);
   const [username,setUsername] = useState('');
   // console.log(input);
   // console.log(messages);
 
   const sendMessage = (event) => {
     event.preventDefault();
-    setMessages([...messages, input]);
+    setMessages([...messages, {username:username,text:input}]);
     setInput("");
   };
 //*Code runs base on a condition
@@ -50,7 +50,7 @@ function App() {
       {/* Messages */}
 
       {messages.map((message) => (
-        <Message text={message} />
+        <Message userName = {message.username}text={message.text} />
       ))}
     </div>
   );
