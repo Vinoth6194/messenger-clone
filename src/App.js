@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import Button from "@material-ui/core/Button";
 
 function App() {
   const [input, setInput] = useState("");
@@ -12,6 +13,9 @@ function App() {
     setMessages([...messages, input]);
     setInput("");
   };
+
+  //*Disabled proeprty -> disables the button when there is no input in the input field
+
   return (
     <div className="App">
       <h1>Hello Clever Programmers :🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 </h1>
@@ -22,9 +26,16 @@ function App() {
           value={input}
           onChange={(event) => setInput(event.target.value)}
         ></input>
-        {/* Button */}
 
-        <button type="submit" onClick={sendMessage}>Send Message</button>
+        <Button
+          type="submit"
+          onClick={sendMessage}
+          variant="contained"
+          color="primary"
+          disabled={!input}
+        >
+          Send Message
+        </Button>
       </form>
 
       {/* Messages */}
