@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import "./App.css";
 import Button from "@material-ui/core/Button";
 import { FormControl, InputLabel, Input } from "@material-ui/core";
@@ -7,20 +7,25 @@ import Message from "./Message";
 function App() {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState(["Hi Bro", "Vanakam", "Mahalo"]);
-  console.log(input);
-  console.log(messages);
+  const [username,setUsername] = useState('');
+  // console.log(input);
+  // console.log(messages);
 
   const sendMessage = (event) => {
     event.preventDefault();
     setMessages([...messages, input]);
     setInput("");
   };
-
+//*Code runs base on a condition
+  useEffect(() =>{
+    setUsername(prompt('Your Name Please...'))
+  },[])
   //*Disabled proeprty -> disables the button when there is no input in the input field
 
   return (
     <div className="App">
-      <h1>VinChat:🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 </h1>
+      <h1>VinChat⌨ ⌨ ⌨ ⌨ ⌨ ⌨ ⌨  </h1>
+  <h3>Welcome Mr/Mrs {username} 🙂  🙂  🙂  🙂 </h3>
       <form>
         {/* Input Field */}
 
