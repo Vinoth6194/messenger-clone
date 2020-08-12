@@ -8,26 +8,30 @@ function App() {
   console.log(messages);
 
   const sendMessage = (event) => {
+    event.preventDefault();
     setMessages([...messages, input]);
     setInput("");
   };
   return (
     <div className="App">
       <h1>Hello Clever Programmers :🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 </h1>
-      {/* Input Field */}
+      <form>
+        {/* Input Field */}
 
-      <input
-        value={input}
-        onChange={(event) => setInput(event.target.value)}
-      ></input>
-      {/* Button */}
+        <input
+          value={input}
+          onChange={(event) => setInput(event.target.value)}
+        ></input>
+        {/* Button */}
 
-      <button onClick={sendMessage}>Send Message</button>
+        <button type="submit" onClick={sendMessage}>Send Message</button>
+      </form>
+
       {/* Messages */}
 
-    {messages.map(message =>(
-      <p>{message}</p>
-    ))}
+      {messages.map((message) => (
+        <p>{message}</p>
+      ))}
     </div>
   );
 }
