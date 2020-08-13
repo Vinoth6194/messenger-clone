@@ -11,11 +11,11 @@
 }
 
 .message__userCard {
-    background-color: blue;
+    background-color: #5560c2;
     color: white;
 }
 
 .message__guestCard {
-    background-color: grey;
-    color: white;
+    background-color: #e6ede8;
+    color:black;
 }
