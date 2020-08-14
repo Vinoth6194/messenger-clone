@@ -2,14 +2,28 @@
   text-align: center;
 }
 
-.app__form{
+.app__form {
   bottom: 0;
   background-color: grey;
   padding: 20px;
   position: fixed;
   z-index: 1;
-width: 100%;
-margin: 20px;
+  width: 100%;
+  margin: 20px;
+  box-sizing: border-box;
+  
+  
+}
 
+.app__formControl{
+  display: flex !important;
+  flex-direction: row !important;
+}
 
+.app__input{
+  flex: 1;
+}
+
+.app__iconButton{
+  flex: 0;
 }

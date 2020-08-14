@@ -48,18 +48,22 @@ function App() {
       <form className="app__form">
         {/* Input Field */}
 
-        <FormControl >
-          <InputLabel>Your reply goes here...</InputLabel>
+        <FormControl className ="app__formControl">
+          {/* <InputLabel>Your reply goes here...</InputLabel> */}
           <Input
+          className="app__input"
+          placeholder = "Your reply goes here..."
             value={input}
             onChange={(event) => setInput(event.target.value)}
           ></Input>
           <IconButton
+          className ="app__iconButton"
            type="submit"
            onClick={sendMessage}
            variant="contained"
            color="primary"
-           disabled={!input}>
+           disabled={!input}
+           >
             <SendIcon></SendIcon>
           </IconButton>
           {/* <Button
@@ -71,7 +75,9 @@ function App() {
           >
             Send Message
           </Button> */}
+          
         </FormControl>
+
       </form>
 
       {/* Messages */}
