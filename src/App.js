@@ -5,7 +5,10 @@ import { FormControl, InputLabel, Input } from "@material-ui/core";
 import Message from "./Message";
 import db from "./Firebase";
 import firebase from 'firebase';
-import  FlipMove from 'react-flip-move'
+import  FlipMove from 'react-flip-move';
+import SendIcon from '@material-ui/icons/Send';
+import { IconButton } from '@material-ui/core';
+
 
 function App() {
   const [input, setInput] = useState("");
@@ -42,16 +45,24 @@ function App() {
     <div className="App">
       <h1>VinChat⌨ ⌨ ⌨ ⌨ ⌨ ⌨ ⌨ </h1>
       <h3>Welcome Mr/Mrs {username} 🙂 🙂 🙂 🙂 </h3>
-      <form>
+      <form className="app__form">
         {/* Input Field */}
 
-        <FormControl>
+        <FormControl >
           <InputLabel>Your reply goes here...</InputLabel>
           <Input
             value={input}
             onChange={(event) => setInput(event.target.value)}
           ></Input>
-          <Button
+          <IconButton
+           type="submit"
+           onClick={sendMessage}
+           variant="contained"
+           color="primary"
+           disabled={!input}>
+            <SendIcon></SendIcon>
+          </IconButton>
+          {/* <Button
             type="submit"
             onClick={sendMessage}
             variant="contained"
@@ -59,7 +70,7 @@ function App() {
             disabled={!input}
           >
             Send Message
-          </Button>
+          </Button> */}
         </FormControl>
       </form>
 
