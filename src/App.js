@@ -4,6 +4,7 @@ import Button from "@material-ui/core/Button";
 import { FormControl, InputLabel, Input } from "@material-ui/core";
 import Message from "./Message";
 import db from "./Firebase";
+import firebase from 'firebase';
 
 function App() {
   const [input, setInput] = useState("");
@@ -14,7 +15,12 @@ function App() {
 
   const sendMessage = (event) => {
     event.preventDefault();
-    setMessages([...messages, { username: username, text: input }]);
+    //setMessages([...messages, { username: username, text: input }]);
+    db.collection('messages').add({
+      message:input,
+      username:username,
+      timestamp:firebase.firestore.FieldValue.serverTimestamp(),
+    })
     setInput("");
   };
   //*Code runs base on a condition
@@ -24,7 +30,9 @@ function App() {
   //*Disabled proeprty -> disables the button when there is no input in the input field
 
   useEffect(() => {
-    db.collection("messages").onSnapshot((snapshot) => {
+    db.collection("messages")
+    .orderBy('timestamp','desc')
+    .onSnapshot((snapshot) => {
       setMessages(snapshot.docs.map((doc) => doc.data()));
     });
   }, []);
